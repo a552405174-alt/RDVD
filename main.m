@@ -85,17 +85,10 @@ fprintf('=== Starting Signal Processing Pipeline ===\n');
     time, signal, IMFS_EMD, signal_imfs);
 
 %% ====== Part 5: Similarity Evaluation ======
-similarity = part5_similarity_evaluation(filepath, reconstructed_signal, IMFS_EMD, noise_imfs);
+% similarity = part5_similarity_evaluation(filepath, reconstructed_signal, IMFS_EMD, noise_imfs);
 
 %% ====== Part 6: Vehicle Detection ======
-[~, noisy_name, ~] = fileparts(filepath);
-m = regexp(noisy_name, 'sample(\d+)', 'tokens');
-if ~isempty(m)
-    sid = str2double(m{1}{1});
-else
-    sid = 9999;
-end
-if sid < 500
+if contains(filepath, 'park')
     [accuracy, err_prob, miss_prob, detection_state, events] = part7_detection(time, reconstructed_signal, filepath, fs);
 else
     [accuracy, err_prob, miss_prob, detection_state, events] = part6_detection(time, reconstructed_signal, filepath, fs);
