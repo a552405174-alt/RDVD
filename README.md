@@ -1,75 +1,22 @@
-"# RDVD" 
+# RDVD 
+This repository contains the MATLAB implementation of RDVD, a magnetic-signal–based algorithm for traffic flow detection and parking detection. The goal of RDVD is to accurately identify vehicle presence, entry, exit, and parking states from roadside magnetic sensor data with high robustness to noise and background interference.
+
+## Key Features
+Input: Raw magnetic sensor signals collected from roadside environments.
+Output: Denoised signal and Vehicle detection results.
+
+## Usage
+
+Run `main.py` to execute the model and get the output:
+   - **denoised signal**: Signal after noise reduction by our algorithm.
+   - **detection result**: The vehicle detection result.
 
 
-Repository Structure
+## File Descriptions
 
-.
-├── Datasets/
-│ ├── parking/ # Parking detection datasets
-│ └── traffic/ # Traffic flow detection datasets
-│
-├── main.m # Main entry script of RDVD
-├── part1_sliding_entropy_analysis.m
-├── part2_vmd_decomposition.m
-├── part3_correlation_analysis.m
-├── part4_signal_reconstruction.m
-├── part6_detection.m
-├── part7_detection.m
-└── README.md
-
-
-How to Run
-1. Prepare the Dataset
-
-Place your magnetic signal data in the corresponding folder:
-
-Parking detection dataset
-Datasets/parking/
-
-Traffic flow detection dataset
-Datasets/traffic/
-
-Set the File Path in main.m
-
-Open main.m and set the dataset path according to your task.
-
-Parking detection:
-
-dataPath = './Datasets/parking/';
-
-
-Traffic flow detection:
-
-dataPath = './Datasets/traffic/';
-
-
-Run the Program
-
-In MATLAB, simply execute: main
-
-The complete RDVD processing pipeline will be executed automatically.
-
-
-RDVD Method Overview
-
-The RDVD algorithm consists of the following stages:
-
-Sliding Entropy Analysis
-Extracts local complexity features of magnetic signals.
-(part1_sliding_entropy_analysis.m)
-
-Variational Mode Decomposition (VMD)
-Decomposes the signal into multiple intrinsic mode functions (IMFs).
-(part2_vmd_decomposition.m)
-
-Correlation Analysis
-Identifies vehicle-related components based on similarity measures.
-(part3_correlation_analysis.m)
-
-Signal Reconstruction
-Reconstructs vehicle-induced magnetic disturbances.
-(part4_signal_reconstruction.m)
-
-Vehicle Detection
-Performs adaptive threshold–based detection for traffic flow and roadside parking events.
-(part6_detection.m, part7_detection.m)
+- **part1_sliding_entropy_analysis.m**: Extracts local complexity features of magnetic signals.
+- **part2_vmd_decomposition.m**: Decomposes the signal into multiple intrinsic mode functions (IMFs).
+- **part3_correlation_analysis.m**: Identifies vehicle-related components based on similarity measures.
+- **part4_signal_reconstruction.m**: Reconstructs vehicle-induced magnetic disturbances.
+- **part6_detection.m**: Performs adaptive threshold-based detection for traffic flow and roadside parking events.
+- **part7_detection.m**: Performs adaptive threshold-based detection for traffic flow and roadside parking events.
